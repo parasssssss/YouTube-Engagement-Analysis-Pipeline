@@ -15,7 +15,7 @@ def fetch_comments(keyword: str, max_videos: int = 5, max_comments: int = 100) -
     """
     API_KEY = os.getenv('YOUTUBE_API_KEY')
     
-    # Connect to YouTube API
+   
     youtube = build('youtube', 'v3', developerKey=API_KEY)
     
     # Search videos

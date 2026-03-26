@@ -4,9 +4,7 @@ import pandas as pd
 from textblob import TextBlob
 
 def clean_comments(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Clean comments DataFrame and add sentiment analysis.
-    """
+ 
     # Drop duplicates & missing text
     df = df.drop_duplicates(subset=['video_id', 'author', 'text'])
     df = df.dropna(subset=['text'])

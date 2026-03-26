@@ -9,10 +9,10 @@ load_dotenv()
 
 def connect_db(host, dbname, user, password, port=5432):
    conn = psycopg2.connect(
-    host="localhost",        # or your server IP if remote
-    dbname="youtube_db",     # name of the database you created in PostgreSQL
-    user="postgres",         # your PostgreSQL username
-    password=os.getenv("DATABASE_PASSWORD"),# your PostgreSQL password
+    host="localhost",        
+    dbname="youtube_db",     
+    user="postgres",        
+    password=os.getenv("DATABASE_PASSWORD"),
     port=5432               
     )
    cursor = conn.cursor()

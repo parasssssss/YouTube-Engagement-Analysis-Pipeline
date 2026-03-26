@@ -8,16 +8,16 @@ import os
 
 
 def main():
-    # 1️⃣ Fetch comments
+    # Fetch comments
     raw_df = fetch_comments(keyword='Galaxy S26', max_videos=5, max_comments=100)
     
-    # 2️⃣ Clean comments
+    # Clean comments
     cleaned_df = clean_comments(raw_df)
     
-    # 3️⃣ Analyze engagement
+    # Analyze engagement
     analyzed_df = analyze_engagement(cleaned_df)
     
-    # 4️⃣ PostgreSQL
+    # PostgreSQL
     conn, cursor = connect_db(
         host='localhost',
         dbname='youtube_db',
