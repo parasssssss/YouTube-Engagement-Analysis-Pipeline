@@ -1,127 +1,185 @@
-# YouTube Engagement Analysis Pipeline
+# 🚀 YouTube Content Intelligence & Engagement Analytics System
 
-## Project Overview
+## 📌 Project Overview
 
-This project is an end-to-end automated pipeline that fetches comments from YouTube videos, performs data cleaning and sentiment analysis, computes engagement metrics, stores the data in PostgreSQL, and visualizes insights using Power BI. The pipeline enables businesses to monitor audience engagement, sentiment trends, and content performance efficiently.
+This project is an end-to-end **keyword-driven data analytics pipeline** that discovers YouTube videos based on a given topic, extracts both video-level and comment-level data, performs sentiment analysis, and generates actionable insights through an interactive Power BI dashboard.
 
-## Problem Statement
+Unlike traditional sentiment analysis projects, this system combines **content discovery, engagement analytics, and audience sentiment** to help understand what type of content performs best and how audiences respond over time.
 
-Businesses and content creators often struggle to understand audience sentiment and engagement across YouTube videos. Manual analysis is time-consuming, inconsistent, and does not provide actionable insights. Key challenges include:
+---
 
-* Collecting and consolidating comments across multiple videos.
-* Analyzing sentiment and engagement metrics efficiently.
-* Generating visual dashboards for decision-making.
+## ❗ Problem Statement
 
-## Solution
+Content creators and businesses often rely on surface-level metrics such as views and likes, which fail to capture true audience sentiment and engagement quality. Manually analyzing thousands of YouTube comments is time-consuming, inconsistent, and not scalable.
 
-This project provides an automated and scalable solution to track engagement and sentiment on YouTube:
+Additionally, there is no simple automated system that converts raw YouTube data into actionable insights such as:
 
-1. **Data Collection:** Fetch comments from multiple videos using the YouTube Data API v3.
-2. **Data Cleaning & Processing:** Remove duplicates, handle missing values, and compute sentiment scores using NLP techniques.
-3. **Database Storage:** Store cleaned comments in PostgreSQL with UPSERT logic to maintain updated records.
-4. **Analytics:** Compute KPIs such as total comments, total likes, average likes per comment, sentiment distribution, top videos, and top commenters.
-5. **Visualization:** Build interactive dashboards in Power BI for actionable insights.
+* Audience sentiment trends
+* Engagement efficiency
+* Content performance across topics
 
-## Tech Stack
+---
 
-* Python: Data extraction, cleaning, and sentiment analysis
-* Pandas: Data manipulation and aggregation
-* TextBlob: Sentiment analysis
-* PostgreSQL: Database storage with UPSERT support
-* Power BI: Dashboard visualization and reporting
-* YouTube Data API v3: Fetch video comments
+## 💡 Solution
 
-## Pipeline Flow
+This project introduces a **keyword-based analytics pipeline** that:
+
+1. Discovers videos dynamically using search keywords
+2. Extracts video-level metrics (views, likes, total comments)
+3. Fetches and processes comment-level data
+4. Performs sentiment analysis using NLP
+5. Computes engagement and performance metrics
+6. Stores data in PostgreSQL using UPSERT logic
+7. Visualizes insights in Power BI dashboard
+
+---
+
+## ⚙️ Tech Stack
+
+* **Python** – ETL pipeline development
+* **Pandas** – Data transformation & aggregation
+* **TextBlob** – Sentiment analysis
+* **PostgreSQL** – Database with UPSERT operations
+* **Power BI** – Dashboard visualization
+* **YouTube Data API v3** – Data extraction
+
+---
+
+## 🔄 Pipeline Flow
 
 ```
-YouTube API → Python (Fetch & Clean) → PostgreSQL → Power BI Dashboard
+Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI Dashboard
 ```
 
-Steps:
+---
 
-1. **Fetch Comments:** Query YouTube API for videos matching a keyword.
-2. **Clean Data:** Remove duplicates, clean text, compute sentiment, and standardize date formats.
-3. **Analyze Engagement:** Compute total comments, likes, average likes, sentiment counts, top commenters, and top videos.
-4. **Database Storage:** Create a table in PostgreSQL if not exists, and UPSERT cleaned and analyzed comments.
-5. **Visualization:** Build interactive Power BI dashboard to track engagement trends.
+## 🧠 Key Features
 
-## Features
+* 🔍 Keyword-based video discovery
+* 📊 Video-level + Comment-level analytics
+* 💬 Sentiment classification (Positive / Neutral / Negative)
+* ⚡ Engagement metrics calculation
+* 🔁 PostgreSQL UPSERT for efficient updates
+* 📈 Interactive Power BI dashboard
+* 🧩 Modular and scalable pipeline
 
-* Automated comment scraping from YouTube videos.
-* Data cleaning and sentiment analysis using Python.
-* Calculation of engagement metrics.
-* PostgreSQL storage with UPSERT to handle duplicate entries.
-* Interactive Power BI dashboard for insights and trends.
-* Modular Python scripts for scalability and reusability.
+---
 
-## KPIs & Insights
+## 📊 KPIs & Metrics
 
-* **Total Comments:** Overall volume of engagement per video.
-* **Total Likes:** Sum of likes on comments.
-* **Average Likes per Comment:** Measure of comment impact.
-* **Sentiment Distribution:** Proportion of positive, negative, and neutral comments.
-* **Top Commenters:** Most active users in discussions.
+* Total Comments
+* Total Comment Likes
+* Average Likes per Comment
+* Engagement Rate = (Likes + Comments) / Views
+* Sentiment Distribution
+* Sentiment Trend Over Time
+* Top Videos by Engagement
+* Likes per View (Engagement Efficiency)
 
-## Dashboard Visuals
+---
 
-* **Sentiment Distribution:** Pie or doughnut chart showing positive, neutral, and negative comments.
-* **Comments Over Time:** Line chart showing comments per day/week/month.
-* **Likes vs Sentiment:** Column chart displaying likes per sentiment category.
-* **Top Videos by Engagement:** Bar chart combining comment count and likes per video.
-* **Top Commenters:** Horizontal bar chart showing most active users.
+## 📈 Dashboard Visuals
 
+* 🎯 Engagement vs Views (Scatter Plot)
+* 😊 Sentiment Distribution
+* 📈 Sentiment Trend Over Time
+* 🔥 Top Videos by Engagement Rate
+* ⚖️ Avg Likes per Sentiment
 
-## Automation
+---
 
-The Python scripts are modular and can be scheduled using Windows Task Scheduler or cron jobs to fetch and analyze new comments automatically. This ensures dashboards are updated periodically without manual intervention.
+## 💼 Business Use Cases
 
-## Learning Outcomes
+* Identify high-performing content strategies
+* Track audience sentiment trends
+* Detect negative feedback early
+* Optimize content using engagement insights
+* Understand audience behavior
 
-* Build end-to-end ETL pipelines for unstructured data.
-* Fetch and manage data from APIs with rate limiting.
-* Perform data cleaning, preprocessing, and sentiment analysis.
-* Manage PostgreSQL operations with UPSERT logic.
-* Create interactive dashboards using Power BI for business insights.
-* Understand audience behavior and engagement metrics for decision-making.
+---
 
-## Project Structure
+## ⚙️ Automation
+
+The pipeline can be automated using:
+
+* Windows Task Scheduler
+* Cron Jobs
+
+This ensures periodic updates and real-time insights.
+
+---
+
+## 🧩 Challenges & Solutions
+
+* API Rate Limits → Implemented request throttling
+* Noisy Text Data → Applied preprocessing techniques
+* Duplicate Records → Solved using UPSERT
+* Schema Changes → Handled with table redesign
+
+---
+
+## 📚 Learning Outcomes
+
+* Built an end-to-end ETL pipeline
+* Integrated API, database, and dashboard
+* Applied NLP for sentiment analysis
+* Created business-driven insights
+* Designed scalable data workflows
+
+---
+
+## 📁 Project Structure
 
 ```
 YouTube_Engagement_Analysis/
 │
-├─ dataset/                 
+├─ dataset/
 │   ├─ comments_raw.csv
 │   └─ comments_cleaned.csv
 │
-├─ scripts/                  
+├─ scripts/
 │   ├─ fetch_comments.py
 │   ├─ clean_data.py
 │   ├─ analyze_data.py
 │   └─ db_operations.py
 │
-├─ reports/                  
+├─ reports/
 │   └─ engagement_dashboard.png
 │
-├─ utils/                    
+├─ utils/
 │   └─ sentiment_analysis.py
 │
 ├─ README.md
 ├─ requirements.txt
-└─ main.py                   
+└─ main.py
 ```
 
-## Dashboard Preview
+---
+
+## 📊 Dashboard Preview
 
 <p align="center">
-  <img src="reports/Dashboard.png" width="800"/>
+  <img src="reports/Dashboard1.png" width="800"/>
 </p>
 
-## Next Steps / Improvements
+---
 
-* Add real-time streaming for new comments.
-* Implement advanced NLP techniques such as topic modeling.
-* Expand visualization to compare multiple keywords or channels.
-* Integrate Power BI Service or Google Data Studio for live dashboards.
+## 🚀 Future Improvements
 
-```
-```
+* Real-time comment streaming
+* Advanced NLP (topic modeling, emotion detection)
+* Multi-keyword comparison
+* Power BI Service deployment
+* Integration with other platforms
+
+---
+
+## 💥 Key Highlight
+
+> This project goes beyond basic sentiment analysis by combining keyword-based content discovery, engagement analytics, and audience sentiment.
+
+---
+
+## 🏁 Conclusion
+
+This system transforms raw YouTube data into actionable insights by bridging the gap between content performance and audience perception.

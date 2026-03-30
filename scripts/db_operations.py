@@ -4,24 +4,27 @@ import psycopg2
 from psycopg2.extras import execute_values
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
-
-def connect_db(host, dbname, user, password, port=5432):
-   conn = psycopg2.connect(
-    host="localhost",        
-    dbname="youtube_db",     
-    user="postgres",        
-    password=os.getenv("DATABASE_PASSWORD"),
-    port=5432               
+def connect_db():
+    conn = psycopg2.connect(
+        host="localhost",
+        dbname="youtube_db",
+        user="postgres",
+        password=os.getenv("DATABASE_PASSWORD"),
+        port=5432
     )
-   cursor = conn.cursor()
-   return conn, cursor
+    return conn, conn.cursor()
 
 def create_table(cursor, conn):
-    create_query = """
+    query = """
     CREATE TABLE IF NOT EXISTS youtube_comments (
         video_id TEXT,
+        video_title TEXT,
+        views BIGINT,
+        video_likes BIGINT,
+        video_total_comments BIGINT,
         author TEXT,
         published_at TIMESTAMP,
         text TEXT,
@@ -31,15 +34,30 @@ def create_table(cursor, conn):
         PRIMARY KEY (video_id, author, published_at)
     );
     """
-    cursor.execute(create_query)
+    cursor.execute(query)
     conn.commit()
-    print("Table youtube_comments ready.")
 
 def upsert_comments(df, cursor, conn):
-    records = list(df[['video_id', 'author', 'published_at', 'text', 'like_count', 'polarity', 'sentiment']].itertuples(index=False, name=None))
-    insert_query = """
-    INSERT INTO youtube_comments
-    (video_id, author, published_at, text, like_count, polarity, sentiment)
+
+    records = list(df[[
+        'video_id','video_title','views','video_likes','video_total_comments',
+        'author','published_at','text','like_count','polarity','sentiment'
+    ]].itertuples(index=False, name=None))
+
+    query = """
+    INSERT INTO youtube_comments (
+        video_id,
+        video_title,
+        views,
+        video_likes,
+        video_total_comments,
+        author,
+        published_at,
+        text,
+        like_count,
+        polarity,
+        sentiment
+    )
     VALUES %s
     ON CONFLICT (video_id, author, published_at)
     DO UPDATE SET
@@ -48,6 +66,8 @@ def upsert_comments(df, cursor, conn):
         polarity = EXCLUDED.polarity,
         sentiment = EXCLUDED.sentiment;
     """
-    execute_values(cursor, insert_query, records)
+
+    execute_values(cursor, query, records)
     conn.commit()
-    print(f"{len(records)} records upserted successfully.")
+
+    print(f"{len(records)} rows upserted")

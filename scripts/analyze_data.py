@@ -3,33 +3,48 @@
 import pandas as pd
 
 def analyze_engagement(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Compute engagement metrics, sentiment summary, comments per video.
-    Returns the same DataFrame (for DB insertion).
-    """
-    # Metrics
+
+    # Basic Metrics
     total_comments = len(df)
     total_likes = df['like_count'].sum()
     avg_likes = df['like_count'].mean()
-    
+
     # Sentiment
     sentiment_counts = df['sentiment'].value_counts()
-    
-    # Comments per video
-    comments_per_video = df.groupby('video_id')['text'].count()
-    
-    # Save summary
+
+    # 🎯 Video Level Analysis
+    video_perf = df.groupby(['video_id', 'video_title']).agg({
+        'views': 'first',
+        'video_likes': 'first',
+        'video_total_comments': 'first',
+        'text': 'count'
+    }).rename(columns={'text': 'fetched_comments'})
+
+    # Engagement Rate
+    video_perf['engagement_rate'] = (
+        (video_perf['video_likes'] + video_perf['video_total_comments']) 
+        / video_perf['views']
+    )
+
+    # Top Videos
+    top_videos = video_perf.sort_values(by='engagement_rate', ascending=False).head(5)
+
+    # Save reports
     summary_df = pd.DataFrame({
         'metric': ['total_comments', 'total_likes', 'average_likes'],
         'value': [total_comments, total_likes, avg_likes]
     })
+
     summary_df.to_csv('reports/engagement_summary.csv', index=False)
-    
-    print("\nEngagement Metrics:")
+    video_perf.to_csv('reports/video_performance.csv')
+
+    print("\n📊 Engagement Metrics:")
     print(summary_df)
-    print("\nSentiment Counts:")
+
+    print("\n😊 Sentiment Counts:")
     print(sentiment_counts)
-    print("\nTop 5 Videos by Comments:")
-    print(comments_per_video.sort_values(ascending=False).head(5))
-    
+
+    print("\n🔥 Top Videos by Engagement Rate:")
+    print(top_videos)
+
     return df
