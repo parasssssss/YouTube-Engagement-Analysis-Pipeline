@@ -1,4 +1,4 @@
-# scripts/fetch_comments.py
+
 
 import pandas as pd
 from googleapiclient.discovery import build
@@ -37,7 +37,7 @@ def fetch_comments(keyword: str, max_videos: int = 5, max_comments: int = 100) -
     API_KEY = os.getenv('YOUTUBE_API_KEY')
     youtube = build('youtube', 'v3', developerKey=API_KEY)
 
-    # 🔍 Search videos
+   
     search_request = youtube.search().list(
         q=keyword,
         part='id',
@@ -49,10 +49,10 @@ def fetch_comments(keyword: str, max_videos: int = 5, max_comments: int = 100) -
     video_ids = [item['id']['videoId'] for item in search_response['items']]
     print(f"Found {len(video_ids)} videos for keyword '{keyword}'")
 
-    # 🔥 NEW: Fetch video stats
+   
     video_stats = fetch_video_stats(youtube, video_ids)
 
-    # 💬 Fetch comments
+  
     all_comments = []
 
     for video_id in video_ids:

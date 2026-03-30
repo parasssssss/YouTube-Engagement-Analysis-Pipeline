@@ -1,4 +1,4 @@
-# scripts/clean_data.py
+
 
 import pandas as pd
 from textblob import TextBlob

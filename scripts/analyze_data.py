@@ -1,18 +1,18 @@
-# scripts/analyze_data.py
+
 
 import pandas as pd
 
 def analyze_engagement(df: pd.DataFrame) -> pd.DataFrame:
 
-    # Basic Metrics
+   
     total_comments = len(df)
     total_likes = df['like_count'].sum()
     avg_likes = df['like_count'].mean()
 
-    # Sentiment
+   
     sentiment_counts = df['sentiment'].value_counts()
 
-    # 🎯 Video Level Analysis
+    
     video_perf = df.groupby(['video_id', 'video_title']).agg({
         'views': 'first',
         'video_likes': 'first',
@@ -20,16 +20,16 @@ def analyze_engagement(df: pd.DataFrame) -> pd.DataFrame:
         'text': 'count'
     }).rename(columns={'text': 'fetched_comments'})
 
-    # Engagement Rate
+   
     video_perf['engagement_rate'] = (
         (video_perf['video_likes'] + video_perf['video_total_comments']) 
         / video_perf['views']
     )
 
-    # Top Videos
+  
     top_videos = video_perf.sort_values(by='engagement_rate', ascending=False).head(5)
 
-    # Save reports
+  
     summary_df = pd.DataFrame({
         'metric': ['total_comments', 'total_likes', 'average_likes'],
         'value': [total_comments, total_likes, avg_likes]
