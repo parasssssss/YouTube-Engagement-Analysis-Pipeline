@@ -67,24 +67,29 @@ Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI
 
 ## 📊 KPIs & Metrics
 
-* Total Comments
-* Total Comment Likes
-* Average Likes per Comment
-* Engagement Rate = (Likes + Comments) / Views
-* Sentiment Distribution
-* Sentiment Trend Over Time
-* Top Videos by Engagement
-* Likes per View (Engagement Efficiency)
+* **Total Comments** – Total number of comments across selected videos
+* **Total Likes** – Sum of likes on all comments
+* **Average Likes** – Average likes per comment
+* **Engagement Rate** – (Total Likes + Total Comments) / Total Views
 
 ---
 
 ## 📈 Dashboard Visuals
 
-* 🎯 Engagement vs Views (Scatter Plot)
-* 😊 Sentiment Distribution
-* 📈 Sentiment Trend Over Time
-* 🔥 Top Videos by Engagement Rate
-* ⚖️ Avg Likes per Sentiment
+* 😊 **Sentiment Analysis (Bar Chart)**
+  Displays count of positive, neutral, and negative comments
+
+* 🎯 **Engagement vs Views (Scatter Plot)**
+  Compares video views with engagement rate to identify high-performing content
+
+* 📈 **Sentiment Trend Over Time (Line Chart)**
+  Tracks how positive and negative sentiments change over time
+
+* 🔥 **Top Videos by Engagement (Bar Chart)**
+  Highlights videos with highest engagement rate
+
+* ⚡ **Engagement Trend Over Time (Line Chart)**
+  Shows how overall engagement changes over time
 
 ---
 
@@ -146,8 +151,8 @@ YouTube_Engagement_Analysis/
 ├─ reports/
 │   └─ engagement_dashboard.png
 │
-├─ utils/
-│   └─ sentiment_analysis.py
+├
+│   
 │
 ├─ README.md
 ├─ requirements.txt
