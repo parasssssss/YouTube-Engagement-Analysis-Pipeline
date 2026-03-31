@@ -1,6 +1,6 @@
-# 🚀 YouTube Content Intelligence & Engagement Analytics System
+#  YouTube Content Intelligence & Engagement Analytics System
 
-## 📌 Project Overview
+##  Project Overview
 
 This project is an end-to-end **keyword-driven data analytics pipeline** that discovers YouTube videos based on a given topic, extracts both video-level and comment-level data, performs sentiment analysis, and generates actionable insights through an interactive Power BI dashboard.
 
@@ -8,7 +8,7 @@ Unlike traditional sentiment analysis projects, this system combines **content d
 
 ---
 
-## ❗ Problem Statement
+## Problem Statement
 
 Content creators and businesses often rely on surface-level metrics such as views and likes, which fail to capture true audience sentiment and engagement quality. Manually analyzing thousands of YouTube comments is time-consuming, inconsistent, and not scalable.
 
@@ -20,7 +20,7 @@ Additionally, there is no simple automated system that converts raw YouTube data
 
 ---
 
-## 💡 Solution
+##  Solution
 
 This project introduces a **keyword-based analytics pipeline** that:
 
@@ -34,7 +34,7 @@ This project introduces a **keyword-based analytics pipeline** that:
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 * **Python** – ETL pipeline development
 * **Pandas** – Data transformation & aggregation
@@ -45,7 +45,7 @@ This project introduces a **keyword-based analytics pipeline** that:
 
 ---
 
-## 🔄 Pipeline Flow
+##  Pipeline Flow
 
 ```
 Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI Dashboard
@@ -53,7 +53,7 @@ Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI
 
 ---
 
-## 🧠 Key Features
+## Key Features
 
 * 🔍 Keyword-based video discovery
 * 📊 Video-level + Comment-level analytics
@@ -65,7 +65,7 @@ Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI
 
 ---
 
-## 📊 KPIs & Metrics
+##  KPIs & Metrics
 
 * **Total Comments** – Total number of comments across selected videos
 * **Total Likes** – Sum of likes on all comments
@@ -74,26 +74,26 @@ Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI
 
 ---
 
-## 📈 Dashboard Visuals
+##  Dashboard Visuals
 
-* 😊 **Sentiment Analysis (Bar Chart)**
+* **Sentiment Analysis (Bar Chart)**
   Displays count of positive, neutral, and negative comments
 
-* 🎯 **Engagement vs Views (Scatter Plot)**
+*  **Engagement vs Views (Scatter Plot)**
   Compares video views with engagement rate to identify high-performing content
 
-* 📈 **Sentiment Trend Over Time (Line Chart)**
+*  **Sentiment Trend Over Time (Line Chart)**
   Tracks how positive and negative sentiments change over time
 
-* 🔥 **Top Videos by Engagement (Bar Chart)**
+*  **Top Videos by Engagement (Bar Chart)**
   Highlights videos with highest engagement rate
 
-* ⚡ **Engagement Trend Over Time (Line Chart)**
+*  **Engagement Trend Over Time (Line Chart)**
   Shows how overall engagement changes over time
 
 ---
 
-## 💼 Business Use Cases
+## Business Use Cases
 
 * Identify high-performing content strategies
 * Track audience sentiment trends
@@ -103,7 +103,7 @@ Keyword Input → YouTube API → Python (ETL + NLP) → PostgreSQL → Power BI
 
 ---
 
-## ⚙️ Automation
+##  Automation
 
 The pipeline can be automated using:
 
@@ -114,7 +114,7 @@ This ensures periodic updates and real-time insights.
 
 ---
 
-## 🧩 Challenges & Solutions
+##  Challenges & Solutions
 
 * API Rate Limits → Implemented request throttling
 * Noisy Text Data → Applied preprocessing techniques
@@ -123,7 +123,7 @@ This ensures periodic updates and real-time insights.
 
 ---
 
-## 📚 Learning Outcomes
+##  Learning Outcomes
 
 * Built an end-to-end ETL pipeline
 * Integrated API, database, and dashboard
@@ -133,7 +133,7 @@ This ensures periodic updates and real-time insights.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 YouTube_Engagement_Analysis/
@@ -161,7 +161,7 @@ YouTube_Engagement_Analysis/
 
 ---
 
-## 📊 Dashboard Preview
+##  Dashboard Preview
 
 <p align="center">
   <img src="reports/Dashboard1.png" width="800"/>
@@ -169,7 +169,7 @@ YouTube_Engagement_Analysis/
 
 ---
 
-## 🚀 Future Improvements
+## Future Improvements
 
 * Real-time comment streaming
 * Advanced NLP (topic modeling, emotion detection)
@@ -179,12 +179,12 @@ YouTube_Engagement_Analysis/
 
 ---
 
-## 💥 Key Highlight
+##  Key Highlight
 
 > This project goes beyond basic sentiment analysis by combining keyword-based content discovery, engagement analytics, and audience sentiment.
 
 ---
 
-## 🏁 Conclusion
+##  Conclusion
 
 This system transforms raw YouTube data into actionable insights by bridging the gap between content performance and audience perception.
