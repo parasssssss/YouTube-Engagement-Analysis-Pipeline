@@ -12,7 +12,7 @@ Unlike traditional sentiment analysis projects, this system combines **content d
 
 Content creators and businesses often rely on surface-level metrics such as views and likes, which fail to capture true audience sentiment and engagement quality. Manually analyzing thousands of YouTube comments is time-consuming, inconsistent, and not scalable.
 
-Additionally, there is no simple automated system that converts raw YouTube data into actionable insights such as:
+Additionally, there is not a simple automated system that converts raw YouTube data into actionable insights such as:
 
 * Audience sentiment trends
 * Engagement efficiency
