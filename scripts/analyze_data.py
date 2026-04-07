@@ -38,13 +38,13 @@ def analyze_engagement(df: pd.DataFrame) -> pd.DataFrame:
     summary_df.to_csv('reports/engagement_summary.csv', index=False)
     video_perf.to_csv('reports/video_performance.csv')
 
-    print("\n📊 Engagement Metrics:")
+    print("\n Engagement Metrics:")
     print(summary_df)
 
-    print("\n😊 Sentiment Counts:")
+    print("\n Sentiment Counts:")
     print(sentiment_counts)
 
-    print("\n🔥 Top Videos by Engagement Rate:")
+    print("\n Top Videos by Engagement Rate:")
     print(top_videos)
 
     return df
